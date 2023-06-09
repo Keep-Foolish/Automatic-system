@@ -2,17 +2,22 @@
   "name": "automatic-system",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
+  "main": "main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "nodemon --exec electron . --watch ./ --ext .js,.html,.css"
   },
   "dependencies": {
+    "element-plus": "^2.3.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "electron": "^25.1.0",
+    "sass": "^1.63.2",
     "vite": "^4.3.9"
   }
 }
