@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "element-plus": "^2.3.6",
+    "nodemon": "^2.0.22",
     "vue": "^3.2.47"
   },
   "devDependencies": {
