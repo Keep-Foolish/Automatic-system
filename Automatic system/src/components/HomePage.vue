@@ -2,32 +2,43 @@
   <div>
     <!-- 顶部 Tabs 标签页 -->
     <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+      <!-- 系统用抽屉组件 -->
       <el-tab-pane label="系统" name="first">
-        <!-- 每个标签页的选项 -->
+        <el-drawer v-model="visible" :show-close="true" direction=ltr>
+          <template #header="{ titleId, titleClass }">
+            <h4 :id="titleId" :class="titleClass">This is a custom header!</h4>
+          </template>
+          This is drawer content.
+        </el-drawer>
+      </el-tab-pane>
+      <el-tab-pane label="项目" name="second">
         <div class="tab_choice_container" id="system">
-          <div class="tab_chocie" @click="handle">
+          <div class="tab_chocie">
             <img src="../assets/file-icon/xinjian.svg" />
-            <div>新建</div>
+            <div>工作目录</div>
           </div>
           <div class="tab_chocie">
             <img src="../assets/file-icon/dakai.svg" />
-            <div>打开</div>
+            <div>新建项目</div>
           </div>
           <div class="tab_chocie">
             <img src="../assets/file-icon/baocun.svg" />
-            <div>保存</div>
+            <div>打开项目</div>
           </div>
           <div class="tab_chocie">
             <img src="../assets/file-icon/lingcunwei.svg" />
-            <div>另存为</div>
+            <div>保存项目</div>
           </div>
           <div class="tab_chocie">
             <img src="../assets/file-icon/daoru.svg" />
-            <div>导入</div>
+            <div>另存项目</div>
+          </div>
+          <div class="tab_chocie">
+            <img src="../assets/file-icon/xinjian.svg" />
+            <div>导入项目</div>
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="项目" name="second">配置管理</el-tab-pane>
       <el-tab-pane label="模块" name="third">角色管理</el-tab-pane>
       <el-tab-pane label="流程" name="fourth">定时任务补偿</el-tab-pane>
       <el-tab-pane label="窗口" name="fifth">定时任务补偿</el-tab-pane>
@@ -39,32 +50,27 @@
         <main-body></main-body>
       </el-tab-pane>
     </el-tabs>
+    <!-- 每个标签页的选项 -->
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import MainBody from './MainBody.vue'
-//点击事件处理函数
-//测试
-function handle() {
-  // 创建一个新的<div>元素
-  var newDiv = document.createElement("div");
 
-  // 添加一些文本内容到新的<div>元素
-  newDiv.innerText = "这是一个新的<div>元素";
-
-  // 获取目标元素（例如，id为"target"的元素）
-  var targetElement = document.getElementsByClassName("demo-tabs");
-
-  // 将新的<div>元素添加为目标元素的子元素
-  targetElement.appendChild(newDiv);
-
-}
 
 //element plus组件
-//设置默认打开文件
-const activeName = ref('first')
+//系统抽屉逻辑
+const visible = ref(false)
+//设置默认打开'文件'标签
+const activeName = ref('second')
+
+function handleClick(tab) {
+  if (tab.props.name === 'first') {
+    visible.value = true
+  }
+  activeName = 'second'
+}
 //项目标签页
 let tabIndex = 2
 const editableTabsValue = ref('2')
@@ -115,33 +121,36 @@ const handleTabsEdit = (
 <style lang='scss'>
 // 标签页通用属性
 .tab_choice_container {
-  height: 8vh;
+  height: 6vh;
   display: flex;
   justify-content: flex-start;
-}
 
-.tab_chocie {
-  width: 4vw;
-  height: 7vh;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
-}
+  //图标内部布局
+  .tab_chocie {
+    width: 5vw;
+    height: 6vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    justify-content: center;
 
-.tab_chocie:hover {
-  background-color: #cfe1f2;
+    &:hover {
+      background-color: #cfe1f2;
+    }
+  }
 }
 
 //画布容器
-.demo-tabs{
+//里面放mainbody组件
+.demo-tabs {
   width: 100%;
   height: 100%;
 }
-.mainbody{
+
+.mainbody {
   width: 100vw;
   height: 58vh;
 }
-
 </style>
