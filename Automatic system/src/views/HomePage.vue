@@ -4,11 +4,12 @@
     <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
       <!-- 系统用抽屉组件 -->
       <el-tab-pane label="系统" name="first">
-        <el-drawer v-model="visible" :show-close="true" direction=ltr>
-          <template #header="{ titleId, titleClass }">
-            <h4 :id="titleId" :class="titleClass">This is a custom header!</h4>
-          </template>
-          This is drawer content.
+        <el-drawer :with-header="flase" v-model="visible" :show-close="false" direction=ltr class="drawer">
+          <div class="drawer-container">
+            <div class="drawer-icon" @click="closeDrawer()"><img src="../assets/quit.svg" /></div>
+            <div class="drawer-setting">设置</div>
+            <div class="drawer-quit">退出</div>
+          </div>
         </el-drawer>
       </el-tab-pane>
       <el-tab-pane label="项目" name="second">
@@ -39,10 +40,10 @@
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="模块" name="third">角色管理</el-tab-pane>
-      <el-tab-pane label="流程" name="fourth">定时任务补偿</el-tab-pane>
-      <el-tab-pane label="窗口" name="fifth">定时任务补偿</el-tab-pane>
-      <el-tab-pane label="帮助" name="sixth">定时任务补偿</el-tab-pane>
+      <el-tab-pane label="模块" name="third">模块</el-tab-pane>
+      <el-tab-pane label="流程" name="fourth">流程</el-tab-pane>
+      <el-tab-pane label="窗口" name="fifth">窗口</el-tab-pane>
+      <el-tab-pane label="帮助" name="sixth">帮助</el-tab-pane>
     </el-tabs>
     <!-- 项目 标签页 -->
     <el-tabs v-model="editableTabsValue" type="card" editable class="demo-tabs" @edit="handleTabsEdit">
@@ -56,20 +57,24 @@
 
 <script setup>
 import { ref } from 'vue'
-import MainBody from './MainBody.vue'
+import MainBody from '../views/MainBody.vue'
 
 
 //element plus组件
-//系统抽屉逻辑
-const visible = ref(false)
+
 //设置默认打开'文件'标签
 const activeName = ref('second')
-
+//系统抽屉逻辑
+const visible = ref(false)
 function handleClick(tab) {
   if (tab.props.name === 'first') {
     visible.value = true
   }
-  activeName = 'second'
+}
+
+function closeDrawer() {
+  visible.value = false
+  console.log('a')
 }
 //项目标签页
 let tabIndex = 2
@@ -152,5 +157,53 @@ const handleTabsEdit = (
 .mainbody {
   width: 100vw;
   height: 58vh;
+}
+
+//左边抽屉
+.drawer {
+  background-color: #32579b !important;
+  width: 16vw !important;
+  padding-left: 0px !important;
+  position: relative;
+
+  .drawer-container {
+    position: absolute;
+    left: -1vh;
+    color: white;
+    font-size: 22px;
+    height: 20%;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .drawer-icon {
+      margin-top: -50px;
+      padding-bottom: 20px;
+      padding-left: 18px;
+      padding-top: 20px;
+      height: 70px;
+      width: 100% !important;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: #5978ae;
+      }
+    }
+
+    .drawer-setting,
+    .drawer-quit {
+      display: flex;
+      align-content: center;
+      padding: 20px;
+      width: 100%;
+      height: 45px;
+
+      &:hover {
+        background-color: #5978ae;
+      }
+    }
+  }
 }
 </style>
