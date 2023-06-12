@@ -1,5 +1,6 @@
 <template>
     <div class="container" ref="container" @scroll="checkScroll">
+        <!-- 画布 -->
         <div class="graph" :style="graphStyle">
             <el-button @click="add">{{ index }}</el-button>
         </div>
@@ -7,7 +8,7 @@
 </template>
   
 <script setup>
-import { onMounted, ref, reactive,onUnmounted, setBlockTracking } from 'vue';
+import { onMounted, ref, reactive } from 'vue';
 
 const index = ref(1);
 const container = ref(null);
@@ -34,9 +35,8 @@ onMounted(() => {
   
 <style lang='scss'>
 .container {
-    width: 100%;
     height: 100%;
-    overflow-y: auto;
+    width: 100%;
 }
 
 .graph {

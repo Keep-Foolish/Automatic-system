@@ -4,7 +4,7 @@ const path = require("path");
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 1300,
-    height: 1000,
+    height: 900,
     //关闭默认导航栏
     frame:false,
     webPreferences: {
