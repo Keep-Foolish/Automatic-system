@@ -74,7 +74,6 @@ function handleClick(tab) {
 
 function closeDrawer() {
   visible.value = false
-  console.log('a')
 }
 //项目标签页
 let tabIndex = 2
@@ -126,7 +125,7 @@ const handleTabsEdit = (
 <style lang='scss'>
 // 标签页通用属性
 .tab_choice_container {
-  height: 6vh;
+  height: 7vh;
   display: flex;
   justify-content: flex-start;
 
@@ -170,7 +169,7 @@ const handleTabsEdit = (
     position: absolute;
     left: -1vh;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     height: 20%;
     width: 100% !important;
     display: flex;
