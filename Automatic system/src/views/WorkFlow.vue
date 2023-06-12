@@ -8,7 +8,7 @@
 </template>
   
 <script setup>
-import { onMounted, ref, reactive } from 'vue';
+import { ref, reactive } from 'vue';
 
 const index = ref(1);
 const container = ref(null);
@@ -19,17 +19,6 @@ const graphStyle = reactive({
 const add = () => {
     index.value++;
 };
-
-const checkScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = container.value;
-    if (scrollTop + clientHeight >= scrollHeight) {
-        graphStyle.height = `${parseInt(graphStyle.height) + 200}px`;
-    } 
-};
-
-onMounted(() => {
-    container.value.addEventListener('scroll', checkScroll);
-});
 
 </script>
   
