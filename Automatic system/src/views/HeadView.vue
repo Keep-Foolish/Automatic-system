@@ -69,7 +69,7 @@ function closeDrawer() {
 
 <style lang='scss'>
 .head-container{
-  height: 13vh;
+  margin-bottom: -1px;
 }
 // 标签页通用属性
 .tab_choice_container {
