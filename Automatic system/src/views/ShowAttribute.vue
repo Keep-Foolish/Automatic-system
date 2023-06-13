@@ -1,14 +1,17 @@
 <template>
-  <el-descriptions title="Vertical list with border" direction="vertical" :column="4" :size="size" border>
-    <el-descriptions-item label="Username">kooriookami</el-descriptions-item>
-    <el-descriptions-item label="Telephone">18100000000</el-descriptions-item>
-    <el-descriptions-item label="Place" :span="2">Suzhou</el-descriptions-item>
-    <el-descriptions-item label="Remarks">
-      <el-tag size="small">School</el-tag>
-    </el-descriptions-item>
-    <el-descriptions-item label="Address">No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province
-    </el-descriptions-item>
-  </el-descriptions>
+  <div class="attribute-container">
+    <!-- element plue属性组件 -->
+    <el-descriptions title="Vertical list with border" direction="vertical" :column="4" :size="size" border>
+      <el-descriptions-item label="Username">kooriookami</el-descriptions-item>
+      <el-descriptions-item label="Telephone">18100000000</el-descriptions-item>
+      <el-descriptions-item label="Place" :span="2">Suzhou</el-descriptions-item>
+      <el-descriptions-item label="Remarks">
+        <el-tag size="small">School</el-tag>
+      </el-descriptions-item>
+      <el-descriptions-item label="Address">No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province
+      </el-descriptions-item>
+    </el-descriptions>
+  </div>
 </template>
   
 <script setup>
@@ -30,5 +33,9 @@ const blockMargin = computed(() => {
 <style scoped>
 .el-descriptions {
   margin-top: 20px;
+}
+
+.attribute-container{
+  z-index: 9999;
 }
 </style>

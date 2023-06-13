@@ -1,12 +1,15 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, Menu, screen } = require("electron");
 const path = require("path");
 
 const createWindow = () => {
+  // 获取主显示器的大小
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width, height } = primaryDisplay.workAreaSize;
+
   const win = new BrowserWindow({
-    width: 1300,
-    height: 900,
-    //关闭默认导航栏
-    frame:false,
+    width: Math.floor(width * 0.8),
+    height: Math.floor(height * 0.9),
+    frame: true,
     webPreferences: {
       //关掉主进程和渲染进程的隔离
       // contextIsolation:false
@@ -17,6 +20,8 @@ const createWindow = () => {
       sandbox: false,
     },
   });
+  // 取消默认菜单栏
+  Menu.setApplicationMenu(null);
   win.loadURL("http://localhost:5173");
   // win.loadFile("./dist/index.html");
   //打开开发者工具

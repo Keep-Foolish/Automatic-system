@@ -1,7 +1,7 @@
 <template>
     <div class="container" ref="container" @scroll="checkScroll">
         <!-- 画布 -->
-        <div class="graph" :style="graphStyle">
+        <div class="graph">
             <el-button @click="add">{{ index }}</el-button>
         </div>
     </div>
@@ -12,9 +12,6 @@ import { ref, reactive } from 'vue';
 
 const index = ref(1);
 const container = ref(null);
-const graphStyle = reactive({
-    height: '1000px',
-});
 
 const add = () => {
     index.value++;
@@ -33,6 +30,8 @@ const add = () => {
     width: 100%;
     transition: height 0.3s ease;
     /* 添加过渡效果 */
+    height: 75vh;
+    border-radius: 8px;
 }
 </style>
   

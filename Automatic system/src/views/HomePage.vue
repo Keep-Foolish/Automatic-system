@@ -8,7 +8,7 @@
         <!-- 画板 -->
         <work-flow></work-flow>
         <!-- 属性 -->
-        <!-- <show-attribute></show-attribute> -->
+        <show-attribute class="attribute-container"></show-attribute>
       </el-tab-pane>
     </el-tabs>
     <!-- 每个标签页的选项 -->
@@ -19,7 +19,7 @@
 import { ref } from 'vue'
 import HeadView from '../views/HeadView.vue'
 import WorkFlow from '../views/WorkFlow.vue'
-// import ShowAttribute from '../views/ShowAttribute.vue';
+import ShowAttribute from '../views/ShowAttribute.vue';
 
 //项目标签页逻辑
 let tabIndex = 2
@@ -70,13 +70,17 @@ const handleTabsEdit = (
 
 <style lang='scss'>
 .container{
-  height:79vh;
+  height:75vh;
   display: flex;
   flex-direction: column;
 }
-//mainbody
-//里面放mainbody组件
-.demo-tabs {
-  height: 87vh;
+
+.mainbody{
+  position: relative;
+  .attribute-container{
+    position: absolute;
+    right: 0px;
+    z-index: 99999;
+  }
 }
 </style>
