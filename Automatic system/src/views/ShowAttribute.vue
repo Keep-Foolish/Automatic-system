@@ -17,7 +17,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-const size = ref('')
+const size = ref('1')
 const blockMargin = computed(() => {
   const marginMap = {
     large: '32px',
@@ -33,8 +33,8 @@ const blockMargin = computed(() => {
 <style scoped>
 .el-descriptions {
   margin-top: 20px;
+  background-color: azure;
 }
-
 .attribute-container{
   z-index: 9999;
 }

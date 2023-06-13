@@ -8,7 +8,7 @@
 </template>
   
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 const index = ref(1);
 const container = ref(null);
@@ -30,7 +30,7 @@ const add = () => {
     width: 100%;
     transition: height 0.3s ease;
     /* 添加过渡效果 */
-    height: 75vh;
+    height: 79vh;
     border-radius: 8px;
 }
 </style>

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, screen } = require("electron");
+const { app, BrowserWindow, Menu, screen,ipcMain } = require("electron");
 const path = require("path");
 
 const createWindow = () => {
@@ -19,6 +19,9 @@ const createWindow = () => {
       //20版本之后设置了沙箱环境
       sandbox: false,
     },
+  });
+  ipcMain.on('close-app', () => {
+    Win.close()
   });
   // 取消默认菜单栏
   Menu.setApplicationMenu(null);

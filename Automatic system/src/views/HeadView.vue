@@ -9,7 +9,7 @@
                     <div class="drawer-container">
                         <div class="drawer-icon" @click="closeDrawer()"><img src="../assets/quit.svg" /></div>
                         <div class="drawer-setting">设置</div>
-                        <div class="drawer-quit">退出</div>
+                        <div class="drawer-quit" @click="closeApp()">退出</div>
                     </div>
                 </el-drawer>
             </el-tab-pane>
@@ -64,7 +64,14 @@ function handleClick(tab) {
 
 function closeDrawer() {
   visible.value = false
+  console.log(process)
 }
+//抽屉退出软件
+function closeApp() {
+      const electron = window.require('electron');
+      const { ipcRenderer } = electron;
+      ipcRenderer.send('close-app');
+    }
 </script>
 
 <style lang='scss'>

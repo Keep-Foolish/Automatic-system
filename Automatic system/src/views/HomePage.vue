@@ -70,7 +70,7 @@ const handleTabsEdit = (
 
 <style lang='scss'>
 .container{
-  height:75vh;
+  height:80vh;
   display: flex;
   flex-direction: column;
 }
@@ -79,6 +79,7 @@ const handleTabsEdit = (
   position: relative;
   .attribute-container{
     position: absolute;
+    top: 0px;
     right: 0px;
     z-index: 99999;
   }
