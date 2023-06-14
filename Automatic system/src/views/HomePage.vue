@@ -7,8 +7,6 @@
       <el-tab-pane class="mainbody" v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
         <!-- 画板 -->
         <work-flow></work-flow>
-        <!-- 属性 -->
-        <show-attribute class="attribute-container"></show-attribute>
       </el-tab-pane>
     </el-tabs>
     <!-- 每个标签页的选项 -->
@@ -19,7 +17,7 @@
 import { ref } from 'vue'
 import HeadView from '../views/HeadView.vue'
 import WorkFlow from '../views/WorkFlow.vue'
-import ShowAttribute from '../views/ShowAttribute.vue';
+
 
 //项目标签页逻辑
 let tabIndex = 2
@@ -70,18 +68,8 @@ const handleTabsEdit = (
 
 <style lang='scss'>
 .container{
-  height:80vh;
+  height:72vh;
   display: flex;
   flex-direction: column;
-}
-
-.mainbody{
-  position: relative;
-  .attribute-container{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    z-index: 99999;
-  }
 }
 </style>

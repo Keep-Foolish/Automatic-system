@@ -80,14 +80,14 @@ function closeApp() {
 }
 // 标签页通用属性
 .tab_choice_container {
-    height: 5.2vh;
+    height: 6vh;
     display: flex;
     justify-content: flex-start;
 
     //图标内部布局
     .tab_chocie {
-        width: 5vw;
-        height: 6vh;
+        width: 5.2vw;
+        height: 7vh;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
